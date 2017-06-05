@@ -56,7 +56,7 @@ class MultilingualServiceProvider extends IlluminateTranslationServiceProvider
 
     private function registerRepository()
     {
-        $this->app['multilingual.repository'] = $this->app->share(function () {
+         $this->app->singleton('multilingual.repository', function () {
             return new LanguagesRepository(new Language());
         });
     }
