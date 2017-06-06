@@ -9,7 +9,7 @@ class RoutingServiceProvider extends IlluminateRoutingServiceProvider
      */
     protected function registerRouter()
     {
-        $this->app['router'] = $this->app->share(function ($app) {
+         $this->app->singleton('router', function ($app) {
             return new Router($app['events'], $app);
         });
     }
@@ -21,7 +21,7 @@ class RoutingServiceProvider extends IlluminateRoutingServiceProvider
      */
     protected function registerUrlGenerator()
     {
-        $this->app['url'] = $this->app->share(function ($app) {
+       $this->app->singleton('url', function ($app) {
             $routes = $app['router']->getRoutes();
 
             // The URL generator needs the route collection that exists on the router.
