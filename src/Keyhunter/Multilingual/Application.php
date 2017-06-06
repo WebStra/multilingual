@@ -2,6 +2,8 @@
 
 use Illuminate\Events\EventServiceProvider;
 use Illuminate\Foundation\Application as Container;
+use Illuminate\Log\LogServiceProvider;
+use Illuminate\Routing\RoutingServiceProvider;
 
 class Application extends Container
 {
@@ -13,6 +15,8 @@ class Application extends Container
     protected function registerBaseServiceProviders()
     {
         $this->register(new EventServiceProvider($this));
+
+        $this->register(new LogServiceProvider($this));
 
         $this->register(new RoutingServiceProvider($this));
     }
