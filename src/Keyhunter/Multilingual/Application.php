@@ -3,7 +3,6 @@
 use Illuminate\Events\EventServiceProvider;
 use Illuminate\Foundation\Application as Container;
 use Illuminate\Log\LogServiceProvider;
-use Illuminate\Routing\RoutingServiceProvider;
 
 class Application extends Container
 {
